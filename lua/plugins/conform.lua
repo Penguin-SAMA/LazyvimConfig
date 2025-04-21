@@ -15,6 +15,8 @@ return {
           python = { "isort", "black" },
           c = { "clang_format" },
           cpp = { "clang_format" },
+          rust = { "rustfmt" },
+          h = { "clang_format" },
           -- ["_"] = { "clang_format" }, -- if not, clang_format not work for .h file
         },
         -- LazyVim will merge the options you set here with builtin formatters.
