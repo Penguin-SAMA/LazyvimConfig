@@ -1,9 +1,8 @@
 return {
   "saghen/blink.cmp",
-  enabled = not vim.g.vscode, -- 在vscode-neovim禁用
   dependencies = {
     "rafamadriz/friendly-snippets",
-    "Kaiser-Yang/blink-cmp-avante",
+    -- "Kaiser-Yang/blincmp-avante",
   },
   version = "*",
   ---@module 'blink.cmp'
@@ -50,12 +49,6 @@ return {
       documentation = { auto_show = true, auto_show_delay_ms = 500 },
       -- 不预选第一个项目，选中后自动插入该项目文本
       list = { selection = { preselect = false, auto_insert = true } },
-      -- 针对菜单的外观配置
-      -- menu = {
-      -- 	min_width = 15,
-      -- 	max_height = 10,
-      -- 	border = "single", -- Defaults to `vim.o.winborder` on nvim 0.11+
-      -- },
     },
     -- 指定文件类型启用/禁用
     enabled = function()
@@ -82,7 +75,7 @@ return {
         "lsp",
         "path",
         "snippets",
-        "avante",
+        -- "avante",
       },
       providers = {
         -- score_offset设置优先级数字越大优先级越高
@@ -99,13 +92,11 @@ return {
             return 0
           end,
         },
-        avante = {
-          module = "blink-cmp-avante",
-          name = "Avante",
-          opts = {
-            -- options for blink-cmp-avante
-          },
-        },
+        -- avante = {
+        -- 	module = "blink-cmp-avante",
+        -- 	name = "Avante",
+        -- 	score_offset = 6,
+        -- },
       },
     },
   },

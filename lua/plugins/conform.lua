@@ -35,7 +35,7 @@ return {
           -- shfmt = {
           --   extra_args = { "-i", "2", "-ci" },
           -- },
-          clang_format = { prepend_args = { "--style=file:/home/penguin/.clang-format" } },
+          clang_format = { prepend_args = { "--style=file:C:/Users/PenguinSAMA/.clang-format" } },
           rust = { "rustfmt", lsp_format = "fallback" },
         },
       }
