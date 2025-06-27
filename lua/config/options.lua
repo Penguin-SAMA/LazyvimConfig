@@ -6,4 +6,3 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.opt.guifont = "Maple Mono NF CN"
-vim.opt.shell = "pwsh -nologo"
