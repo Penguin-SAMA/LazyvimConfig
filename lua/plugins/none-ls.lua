@@ -3,12 +3,23 @@ return {
   opts = function(_, opts)
     local nls = require("null-ls")
 
-    -- 移除C/C++的格式化工具，避免与conform.nvim冲突
+    -- 1) 去掉 clang-format（保持你原来的逻辑）
     opts.sources = vim.tbl_filter(function(source)
-      return not (source.name == "clang_format")
+      return source.name ~= "clang_format"
     end, opts.sources or {})
 
-    -- 如果你根本不想用null-ls对C/C++，可以显式禁用
+    -- 2) 显式禁用 C/C++（保持你原来的逻辑）
     nls.disable({ filetypes = { "c", "cpp", "h" } })
+
+    -- 3) 追加 sqlfluff，并指定方言（按需改成 mysql / bigquery / snowflake …）
+    vim.list_extend(opts.sources or {}, {
+      nls.builtins.diagnostics.sqlfluff.with({
+        extra_args = { "--dialect", "sqlite" }, -- 这里改成你实际用的
+      }),
+      -- 如果想同时启用格式化，可再打开：
+      -- nls.builtins.formatting.sqlfluff.with({
+      --   extra_args = { "--dialect", "postgres", "fix" },
+      -- }),
+    })
   end,
 }

@@ -9,6 +9,7 @@ return {
   },
   opts = {
     -- configuration goes here
+    lang = "cpp",
     cn = {
       enabled = true,
     },

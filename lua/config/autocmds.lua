@@ -19,5 +19,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     -- 禁用自动插入注释标记
     vim.bo.formatoptions = vim.bo.formatoptions:gsub("[ro]", "")
+    vim.opt_local.spell = false
   end,
 })
