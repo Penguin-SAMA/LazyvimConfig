@@ -30,4 +30,20 @@ return {
       },
     },
   },
+  {
+    "mrcjkb/rustaceanvim",
+    optional = true, -- 若你没装这个插件也不会报错
+    init = function()
+      local cfg = vim.g.rustaceanvim or {}
+      cfg.server = cfg.server or {}
+      cfg.server.default_settings = cfg.server.default_settings or {}
+      cfg.server.default_settings["rust-analyzer"] = cfg.server.default_settings["rust-analyzer"] or {}
+      cfg.server.default_settings["rust-analyzer"].files = cfg.server.default_settings["rust-analyzer"].files or {}
+
+      -- 仅此一行：把文件监控改为服务端，更稳地捕捉新增模块/文件
+      cfg.server.default_settings["rust-analyzer"].files.watcher = "server"
+
+      vim.g.rustaceanvim = cfg
+    end,
+  },
 }

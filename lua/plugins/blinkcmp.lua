@@ -67,6 +67,10 @@ return {
       -- 调整间距以确保图标对齐
       nerd_font_variant = "mono",
     },
+    cmdline = {
+      keymap = { preset = "inherit" },
+      completion = { menu = { auto_show = true } },
+    },
 
     -- 已定义启用的提供程序的默认列表，以便您可以扩展它
     sources = {
