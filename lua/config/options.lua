@@ -9,9 +9,3 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.opt.guifont = "Maple Mono NF CN"
 vim.opt.spell = false
 vim.opt.wrap = true
-
--- 禁用不需要的 provider，消除 checkhealth 警告
-vim.g.loaded_perl_provider = 0
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0

@@ -12,7 +12,7 @@ return {
           lua = { "stylua" },
           fish = { "fish_indent" },
           sh = { "shfmt" },
-          python = { "isort", "black" },
+          python = { "ruff_fix", "ruff_format" },
           c = { "clang_format" },
           cpp = { "clang_format" },
           rust = { "rustfmt" },
