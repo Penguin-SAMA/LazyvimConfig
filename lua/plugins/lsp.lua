@@ -3,6 +3,18 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        clangd = {
+          mason = false,
+          cmd = {
+            "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/Llvm/x64/bin/clangd.exe",
+            "--background-index",
+            "--header-insertion=never",
+            "--completion-style=detailed",
+            "--function-arg-placeholders=true",
+            "--fallback-style=llvm",
+            "--query-driver=C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe",
+          },
+        },
         rust_analyzer = {
           mason = false,
         },

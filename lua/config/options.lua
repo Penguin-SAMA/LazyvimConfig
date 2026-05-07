@@ -9,3 +9,9 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 vim.opt.guifont = "Maple Mono NF CN"
 vim.opt.spell = false
 vim.opt.wrap = true
+vim.opt.autoread = true
+
+local godot_nvim_server = [[\\.\pipe\godot.nvim]]
+if vim.fn.has("win32") == 1 and not vim.tbl_contains(vim.fn.serverlist(), godot_nvim_server) then
+  pcall(vim.fn.serverstart, godot_nvim_server)
+end

@@ -38,3 +38,11 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
+
+local external_change_grp = vim.api.nvim_create_augroup("External_change_checktime", { clear = true })
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  group = external_change_grp,
+  desc = "Reload unchanged buffers after external tools update files",
+  command = "checktime",
+})
