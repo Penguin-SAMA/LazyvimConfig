@@ -12,25 +12,20 @@ local function get_cached_cwd(count)
   return term_cwd_cache[count]
 end
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyVimKeymaps",
-  callback = function()
-    -- Ctrl+/ : Horizontal terminal (bottom)
-    vim.keymap.set({ "n", "t" }, "<c-/>", function()
-      Snacks.terminal.toggle(nil, { count = 1, cwd = get_cached_cwd(1), win = { position = "bottom" } })
-    end, { desc = "Toggle Horizontal Terminal" })
+-- Ctrl+/ : Horizontal terminal (bottom)
+vim.keymap.set({ "n", "t" }, "<c-/>", function()
+  Snacks.terminal.toggle(nil, { count = 1, cwd = get_cached_cwd(1), win = { position = "bottom" } })
+end, { desc = "Toggle Horizontal Terminal" })
 
-    -- Ctrl+\ : Vertical terminal (right)
-    vim.keymap.set({ "n", "t" }, "<c-\\>", function()
-      Snacks.terminal.toggle(nil, { count = 2, cwd = get_cached_cwd(2), win = { position = "right" } })
-    end, { desc = "Toggle Vertical Terminal" })
+-- Ctrl+\ : Vertical terminal (right)
+vim.keymap.set({ "n", "t" }, "<c-\\>", function()
+  Snacks.terminal.toggle(nil, { count = 2, cwd = get_cached_cwd(2), win = { position = "right" } })
+end, { desc = "Toggle Vertical Terminal" })
 
-    -- Ctrl+g : Floating terminal
-    vim.keymap.set({ "n", "t" }, "<c-g>", function()
-      Snacks.terminal.toggle(nil, { count = 3, cwd = get_cached_cwd(3), win = { position = "float" } })
-    end, { desc = "Toggle Floating Terminal" })
-  end,
-})
+-- Ctrl+g : Floating terminal
+vim.keymap.set({ "n", "t" }, "<c-g>", function()
+  Snacks.terminal.toggle(nil, { count = 3, cwd = get_cached_cwd(3), win = { position = "float" } })
+end, { desc = "Toggle Floating Terminal" })
 
 -- Open the include file under the cursor (Enhances standard 'gf')
 vim.keymap.set("n", "<leader>gf", require("UEP.api").open_file, { noremap = true, silent = true })

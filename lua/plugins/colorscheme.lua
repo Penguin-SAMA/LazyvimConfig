@@ -37,7 +37,7 @@ return {
     config = function()
       require("everforest").setup({
         -- Your config here
-        transparent_background_level = 2,
+        -- transparent_background_level = 2,
         background = "hard",
         italics = true,
         ui_contrast = "high",
