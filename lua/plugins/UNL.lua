@@ -8,6 +8,17 @@ return {
         "taku25/UNL.nvim", -- Core Library
         build = "cargo build --release --manifest-path scanner/Cargo.toml",
         lazy = false,
+        opts = {
+          logging = {
+            level = "off",
+            echo = { level = "off" },
+            notify = { level = "off" },
+            file = { enable = false },
+          },
+        },
+        config = function(_, opts)
+          require("UNL").setup(opts)
+        end,
       },
       "taku25/UEP.nvim", -- Project Explorer
       "taku25/UEA.nvim", -- Asset (Blueprint) Inspector
